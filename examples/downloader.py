@@ -60,8 +60,13 @@ def copy_url(task_id: TaskID, url: str, path: str) -> None:
     progress.console.log(f"Downloaded {path}")
 
 
-def download(urls: Iterable[str], dest_dir: str):
-    """Download multiple files to the given directory."""
+def download(urls: Iterable[str], dest_dir: str) -> None:
+    """Download multiple files to the given directory.
+
+    Args:
+        urls (Iterable[str]): List of URLs to download.
+        dest_dir (str): Destination folder path.
+    """
 
     with progress:
         with ThreadPoolExecutor(max_workers=4) as pool:
